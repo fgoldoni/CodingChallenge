@@ -49,7 +49,14 @@ abstract class ExportServiceAbstract implements ExportableDocumentInterface
 
         $format = $this->fileExtension($path);
 
-        return $serialiser->decode($data, $format);
+        $result = $serialiser->decode($data, $format);
+
+        if (array_key_exists('product', $result)) {
+
+            return $result['product'];
+        }
+
+        return $result;
     }
 
     /**

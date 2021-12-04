@@ -33,6 +33,6 @@ class XlsxExportService extends ExportServiceAbstract implements XlsxExportInter
 
         $writer = new Xlsx($spreadsheet);
 
-        return $writer->save($this->downloadDirectory($path) . '/download' . time() . '.' . $this->extension());
+        return $writer->save($this->downloadDirectory($path) . '/products' . time() . '.' . $this->extension());
     }
 }

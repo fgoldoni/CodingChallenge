@@ -35,6 +35,6 @@ class JsonExportService extends ExportServiceAbstract implements JsonExportInter
 
         $data = $serialiser->serialize($data, $this->extension());
 
-        return file_put_contents($this->downloadDirectory($path) . '/download' . time() . '.' . $this->extension(), $data);
+        return file_put_contents($this->downloadDirectory($path) . '/products' . time() . '.' . $this->extension(), $data);
     }
 }
