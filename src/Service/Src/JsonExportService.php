@@ -16,9 +16,11 @@ use Symfony\Component\Serializer\Serializer;
  */
 class JsonExportService extends ExportServiceAbstract implements JsonExportInterface
 {
-    public function extension()
+    const JSON = 'json';
+
+    public function extension(): string
     {
-        return 'json';
+        return self::JSON;
     }
 
     public function export(string $path)

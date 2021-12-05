@@ -7,9 +7,9 @@ interface ExportableDocumentInterface
     /**
      * @param string $path
      *
-     * @return mixed
+     * @return array
      */
-    public function data(string $path);
+    public function data(string $path): array;
 
     /**
      * @param string $path

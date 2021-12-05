@@ -16,9 +16,14 @@ use Symfony\Component\Serializer\Serializer;
  */
 class CsvExportService extends ExportServiceAbstract implements CsvExportInterface
 {
-    public function extension()
+    const CSV = 'csv';
+
+    /**
+     * @return string
+     */
+    public function extension(): string
     {
-        return 'csv';
+        return self::CSV;
     }
 
     public function export(string $path)

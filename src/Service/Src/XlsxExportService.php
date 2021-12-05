@@ -16,9 +16,11 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
  */
 class XlsxExportService extends ExportServiceAbstract implements XlsxExportInterface
 {
-    public function extension()
+    const XLSX = 'xlsx';
+
+    public function extension(): string
     {
-        return 'xlsx';
+        return self::XLSX;
     }
 
     public function export(string $path)

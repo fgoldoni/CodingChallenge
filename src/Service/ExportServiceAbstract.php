@@ -5,8 +5,6 @@ namespace App\Service;
 
 
 use App\Service\Contracts\ExportServiceInterface;
-use Symfony\Component\Serializer\Encoder\CsvEncoder;
-use Symfony\Component\Serializer\Encoder\JsonEncode;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
@@ -19,9 +17,9 @@ use Symfony\Component\Serializer\Serializer;
 abstract class ExportServiceAbstract implements ExportableDocumentInterface
 {
     /**
-     * @return mixed
+     * @return string
      */
-    abstract public function extension();
+    abstract public function extension(): string;
 
     /**
      * @param string $path
@@ -35,7 +33,7 @@ abstract class ExportServiceAbstract implements ExportableDocumentInterface
      *
      * @return mixed
      */
-    public function data(string $path)
+    public function data(string $path): array
     {
         $normalizers = [new ObjectNormalizer()];
 
@@ -62,7 +60,7 @@ abstract class ExportServiceAbstract implements ExportableDocumentInterface
     /**
      * @param string $path
      *
-     * @return mixed
+     * @return string
      */
     public function fileExtension(string $path): string
     {
@@ -72,7 +70,7 @@ abstract class ExportServiceAbstract implements ExportableDocumentInterface
     /**
      * @param string $path
      *
-     * @return mixed
+     * @return string
      */
     public function fileContent(string $path): string
     {
@@ -82,7 +80,7 @@ abstract class ExportServiceAbstract implements ExportableDocumentInterface
     /**
      * @param string $path
      *
-     * @return mixed
+     * @return string
      */
     public function downloadDirectory(string $path): string
     {

@@ -14,7 +14,9 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class ExportDocumentCommand extends Command
 {
     protected static $defaultName = 'app:export-document';
+
     protected static $defaultDescription = 'Eine Symfony CLI Anwendung, die die angehängte XML Datei importiert und in ein anderes Dateiformat umwandelt und wieder wegspeichert.';
+
     /**
      * @var \Symfony\Component\Console\Style\SymfonyStyle
      */
@@ -27,18 +29,22 @@ class ExportDocumentCommand extends Command
     /**
      * @var \App\Service\Src\CsvExportService
      */
+
     private $csvExportService;
     /**
      * @var \App\Service\Contracts\XlsxExportInterface
      */
+
     private $xlsxExportService;
     /**
      * @var \App\Service\Contracts\JsonExportInterface
      */
+
     private $jsonExportService;
     /**
      * @var string
      */
+
     private $method;
 
     /**
@@ -68,8 +74,7 @@ class ExportDocumentCommand extends Command
     protected function configure(): void
     {
         $this->addArgument('path', InputArgument::REQUIRED, 'path')
-            ->addArgument('format', null, InputArgument::REQUIRED, 'format')
-        ;
+            ->addArgument('format', null, InputArgument::REQUIRED, 'format');
     }
 
     /**
@@ -90,7 +95,7 @@ class ExportDocumentCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->{$this->method}->export($this->path,  $this->format);
+        $this->{$this->method}->export($this->path, $this->format);
 
         $this->io->success('Success');
 
